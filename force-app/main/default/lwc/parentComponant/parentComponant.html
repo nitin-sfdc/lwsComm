@@ -1,0 +1,41 @@
+<template>
+    Hi How Are you
+    <c-child-componant
+    onsenddata={displayEventData}    >
+    </c-child-componant>
+
+    <lightning-card title="Combo Box_with static values" icon-name="custom:custom67">
+        <p class="slds-p-horizontal_small">
+            <template if:true={options}>
+                <div class="slds-m-around_medium">
+                    <lightning-combobox
+                    name="Status"
+                    label="Status"
+                    value={selectedValue}
+                    placeholder="Select Progress"
+                    options={options}
+                    onchange={handleChange} ></lightning-combobox>    
+                    <p>Selected Value is:<b>{selectedValue}</b></p>
+                </div>
+            </template>     
+        </p> 
+    </lightning-card><br/>
+
+     <lightning-card title="ApexImperativeMethod" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <p class="slds-m-bottom_small">
+                <lightning-button label="Load Contacts" onclick={handleLoad}></lightning-button>
+            </p>
+            <template if:true={dataList}>
+                <template for:each={dataList} for:item="dataObj">
+                    <p key={dataObj.numbers}>{dataObj.named}</p>
+                       {dataObj.numbers}
+                       fieldValues : {dataObj.fieldValues}
+
+                </template>
+            </template>
+           
+        </div>
+    </lightning-card>
+    
+</template>

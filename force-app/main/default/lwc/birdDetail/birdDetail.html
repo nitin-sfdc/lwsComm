@@ -1,0 +1,33 @@
+<template>
+    
+    
+
+<template if:true={animalObjectData}>
+
+    <lightning-card  variant="Narrow"  title="Animal Details" >
+                           
+        <div class="slds-m-around_medium" >
+               <div style=" border-radius: 50%;">
+                   <img src={animalObjectData.image_link}  data-id={animalObjectData.id} style="height: 200px;width:100%" >
+                                
+                                  <b> Name: </b> <p> {animalObjectData.name}</p>
+                                  <b> Habitat: </b> <p> {animalObjectData.habitat}</p>
+                                  <b> Animal Type: </b> <p> {animalObjectData.animal_type}</p>
+                                  <b> Active Time: </b> <p> {animalObjectData.active_time}</p>
+                                  <b> Lifespan: </b> <p> {animalObjectData.lifespan}</p>
+                                  <b> geo Range: </b> <p> {animalObjectData.geo_range}</p>
+                                  <b> Diet: </b> <p> {animalObjectData.diet}</p>
+                                  <b> Latin Name: </b> <p> {animalObjectData.latin_name}</p>
+
+                </div>
+               
+        </div>
+
+    </lightning-card>
+
+</template>
+
+
+  
+    
+</template>

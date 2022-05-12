@@ -1,0 +1,38 @@
+<template>
+
+
+    <lightning-card  variant="Narrow"  title="Animal List" >
+       
+   
+   
+    <div class="slds-grid slds-wrap" style="border:1px #ddd solid; padding:10px; background:#eee; ">
+
+        <template for:each={filteredBirdList} for:item="birdObject">
+            <div key={birdObject.id} class="slds-col slds-size_1-of-3" style="border:1px #c9b8b8 solid;">
+
+                          <lightning-card  title={birdObject.name}>
+                               
+                             <div class="slds-m-around_medium" >
+                                <div style=" border-radius: 50%;">
+
+                                 <img src={birdObject.image_link}  data-id={birdObject.id} style="height: 100px;width:100%" onclick={handleDetailsClick}>
+                                 <b> Name: </b> <p> {birdObject.name}</p>
+                                 
+                                  <!-- <b>geo Range:  </b><p> {birdObject.habitat}</p>
+                                  <b> Lifespan:  </b><p> {birdObject.lifespan}</p>
+                                   -->
+
+                                </div>
+               
+                            </div>
+                         
+                        </lightning-card>
+
+            </div>
+        </template>
+
+
+     </div>>
+
+ </lightning-card>
+</template>

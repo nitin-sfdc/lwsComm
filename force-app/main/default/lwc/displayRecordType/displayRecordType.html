@@ -1,0 +1,29 @@
+<template>
+
+    <lightning-input type="text" onchange={handlechange} ></lightning-input>
+
+    <!-- <template if:true={recordTypeData} for:each={recordTypeData.data} for:item="con" for:index="index">
+       <li key={con.Id}>
+            {con.Name}
+       </li>
+    </template> -->
+
+    <template if:true={contactData} for:each={contactData} for:item="con" for:index="index">
+       <li key={con.Id}>
+            NAME={con.Name}
+       </li>
+    </template>
+    
+    <template if:true={accountDetails} for:each={accountDetails} for:item="accountObject" for:index="index">
+       
+                <p key={accountObject.Id}>{accountObject.Name}</p>
+                    <template for:each={accountObject.Contacts} for:item="contact">
+                        <p key={contact.Id}>{contact.Id}
+                            NAME={contact.Name}
+                        </p>
+                    </template>
+
+       
+    </template>
+    
+</template>

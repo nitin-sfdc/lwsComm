@@ -1,0 +1,26 @@
+<template>
+
+    <div >
+    
+    <template if:true={filterdata}>
+
+
+    <lightning-card  variant="Narrow"  title="Filter Selection" >   
+        
+        <div class="filtercardcontainer">
+
+         <lightning-combobox
+            label="Animal Type"
+            placeholder="Select Animal Type"
+            options={TypeOptions}
+            onchange={handlechange}
+           ></lightning-combobox>  
+
+           </div> 
+
+    </lightning-card>
+   
+
+    </template>
+    </div>
+</template>

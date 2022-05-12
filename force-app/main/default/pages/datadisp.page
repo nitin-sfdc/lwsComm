@@ -1,0 +1,16 @@
+<apex:page controller="GetRecordTypeHelper">
+
+ <apex:pageBlock  title="Firstblock - Tutorialkart"
+                     helpTitle="needHelp"
+                     helpUrl="https://www.tutorialkart.com">
+
+        <apex:pageBlockTable value="{!recType}" var="ac">
+                <apex:column  value="{!ac.Name}"></apex:column>
+        </apex:pageBlockTable>
+        
+
+
+    </apex:pageBlock>
+
+
+</apex:page>

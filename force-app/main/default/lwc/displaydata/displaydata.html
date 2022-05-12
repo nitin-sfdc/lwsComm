@@ -1,0 +1,19 @@
+<template>
+
+   <template  for:each={accountList.data} for:item="con" >
+       <li key={con.Id}>
+            {con.Name}
+       </li>
+    </template> 
+    
+    <div >
+    <template if:true={accountList.data}>
+     <lightning-datatable
+             key-field="id"
+             data={accountList.data}
+             columns={columns}>
+     </lightning-datatable>
+</template>
+</div>
+ 
+</template>

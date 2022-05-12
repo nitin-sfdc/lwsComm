@@ -1,0 +1,24 @@
+.timer {
+  color: red;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.resendotp{
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+}
+
+.resendbtncontainer{
+    margin-top:5px;
+    margin-left: 10px;
+
+}
+
+.congratsmessage{
+    margin-top:15px;
+    margin-left: 15px;
+
+}

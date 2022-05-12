@@ -1,0 +1,67 @@
+<template>
+
+   RECORDID={recordId}
+   
+      <template if:true={error}>
+         <p>error</p>
+       </template>
+
+
+       <template if:false={isOtpValidate}>
+
+
+        <template if:true={message}>
+         
+         <div >
+            <lightning-card  title="Validate OTP">
+            <lightning-input value={otpInput}    label="OTP" maxlength="5" placeholder="Enter OTP" data-id="OTP" class="resendotp"  onchange={handleOtpInput}   formatter="decimal"
+ ></lightning-input>            
+            <div class="resendbtncontainer">
+
+            <lightning-button variant="brand" label="Submit  OTP" title="Primary action"  class="slds-m-left_x-small" onclick={handleSubmitOtp} disabled={resnedButtonstate}></lightning-button>
+            
+      
+            <template if:true={showSendRsendButton}>
+            <lightning-button variant="brand"  label="Resend OTP" title="Primary action"  class="slds-m-left_x-small" data-id="RESEND-OTP" onclick={handleResend} ></lightning-button>
+            </template>
+
+
+            <template if:false={showSendRsendButton}>
+               <p class="timer"> Submit  OTP within  {timer} seconds </p>  
+             </template>
+
+
+          </div>
+
+          
+         </lightning-card>
+         
+         </div>
+
+         
+
+        </template>
+
+         <template if:false={message}>
+            <lightning-card  title="Genarate OTP">
+         <div>
+            <lightning-button variant="brand" label="Genarate  OTP" title="Primary action"  class="slds-m-left_x-small" onclick={handleSendOtp}></lightning-button>
+         </div>
+          </lightning-card>
+         </template>
+
+       </template>
+
+
+        <template if:true={isOtpValidate}>
+
+         <lightning-card  title="Congragulation">
+
+            <div class="congratsmessage">
+            <p style="margin: left 20px;"> OTP validated </p>
+           </div>
+         
+         </lightning-card>
+   
+         </template>
+</template>
