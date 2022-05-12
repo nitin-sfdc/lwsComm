@@ -32,15 +32,29 @@ export default class PasswordValidator extends LightningElement {
         var divblockValidLowerCase= this.template.querySelector('[data-id="validlowercase"]');
         
         
-         divblockSpecialCharacter.className = isValidSpecialCharacter ? 'validIndicator' : 'invalidIndicator';
-         divblockPasswordLength.className = isPasswordLenghthValid ? 'validIndicator' : 'invalidIndicator';
-         divblockNumbers.className = isValidNumber ? 'validIndicator' : 'invalidIndicator';
-         divblockValidUppercase.className = isuppercaseCharacter ? 'validIndicator' : 'invalidIndicator';
-         divblockValidLowerCase.className = isLowercaseCharacter ? 'validIndicator' : 'invalidIndicator';
+        //  divblockPasswordLength.className = isPasswordLenghthValid ? 'validIndicator' : 'invalidIndicator';
+        //  divblockSpecialCharacter.className = isValidSpecialCharacter ? 'validIndicator' : 'invalidIndicator';
+        //  divblockNumbers.className = isValidNumber ? 'validIndicator' : 'invalidIndicator';
+        //  divblockValidUppercase.className = isuppercaseCharacter ? 'validIndicator' : 'invalidIndicator';
+        //  divblockValidLowerCase.className = isLowercaseCharacter ? 'validIndicator' : 'invalidIndicator';
+        
+        this.updateDiv(divblockPasswordLength, isPasswordLenghthValid);
+        this.updateDiv(divblockSpecialCharacter, isValidSpecialCharacter);
+        this.updateDiv(divblockNumbers, isValidNumber);
+        this.updateDiv(divblockValidUppercase, isuppercaseCharacter);
+        this.updateDiv(divblockValidLowerCase, isLowercaseCharacter);
+
+        
+        
 
         console.log("divblockValidLowerCase " + divblockValidLowerCase);
         
 
+    }
+
+
+    updateDiv(div, flag) {
+        div.className = flag ? 'validIndicator' : 'invalidIndicator';        
     }
 
     isPasswordLenghthValid(inputString) { 
