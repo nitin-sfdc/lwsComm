@@ -20,15 +20,14 @@ public with sharing class OTPUtility {
             isRecordInserted=CheckInUtility.createCheckinRecord(OTP,con);
 
             if(isRecordInserted){
-            //isEmailSend=EmailUtility.sendEmail(con.Email,''+OTP+'  Use this OTP for checkin');
+            isEmailSend=EmailUtility.sendEmail(con.Email,''+OTP+'  Use this OTP for checkin');
             isEmailSend=true; 
-            message= 'Email Sent';
             }
 
 
 
             if(isEmailSend){
-                message= 'Email Sent';
+                message= 'Email Sent to the contact '+con.Email;
             }
             }else{
                 throw newMessageException('Something went wrong ');
@@ -37,8 +36,8 @@ public with sharing class OTPUtility {
            
             
         } catch (Exception e) {
-            //throw newMessageException('Some thing went wrong jjj'+e.getMessage());
-            message= 'some error';
+            throw newMessageException('Some thing went wrong jjj'+e.getMessage());
+            // message= 'some error';
         }
 
         return message;

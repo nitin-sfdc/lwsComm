@@ -7,6 +7,8 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class SendOtpComponant extends LightningElement {
 
+
+
     @api
     recordId;
     message;
@@ -32,7 +34,7 @@ export default class SendOtpComponant extends LightningElement {
         sendOtp({ contactId: this.recordId }).then((response) => {
             console.log("response" + response);
             this.message = response;
-            this.showToast('Sucess', 'OTP sent to email', 'success');
+            this.showToast('Sucess', this.message+'OTP sent to email', 'success');
             this.startTimer();
          }).catch((err) => { 
             console.log("err" + err);
