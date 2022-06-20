@@ -1,0 +1,49 @@
+<template>
+    <div >
+
+     <lightning-combobox placeholder="Select Year"  value={value} label="Select Year" options={picklistOptions}  onchange={handleYearSelected}>
+     </lightning-combobox>
+
+     <template if:true={studentData}>
+     <lightning-card  variant="Narrow"  title={cardTitle} icon-name="standard:account">
+     
+        <!-- <template if:true={studentData} for:each={studentData} for:item="stud" for:index="index">
+        <li key={stud.Id}>
+             {stud.Name}
+
+        </li>
+
+
+
+
+        
+     </template> -->
+
+     
+
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+               <thead>
+                   <tr>
+                       <th>Student Name </th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <template for:each={studentData} for:item="stud">
+                       <tr key={stud.Id}>
+                           <td> {stud.Name}</td>
+                       </tr>
+                   </template>
+               </tbody>
+           </table>
+           
+   
+
+        
+     </lightning-card>
+     
+     </template>
+
+     
+     <c-display-year-data-component year-selected={selectedYear} onmycustomevent={handleDepartmentClicked}></c-display-year-data-component>
+     </div>
+</template>
