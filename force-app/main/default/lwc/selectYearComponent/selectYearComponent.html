@@ -21,7 +21,7 @@
 
      
 
-      <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+      <!-- <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
                <thead>
                    <tr>
                        <th>Student Name </th>
@@ -34,9 +34,13 @@
                        </tr>
                    </template>
                </tbody>
-           </table>
+      </table> -->
            
-   
+      <lightning-datatable
+      key-field="id"
+      data={studentData}
+      columns={studentColums}>
+   </lightning-datatable>
 
         
      </lightning-card>

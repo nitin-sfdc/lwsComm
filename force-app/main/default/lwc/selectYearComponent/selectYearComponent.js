@@ -14,6 +14,14 @@ export default class SelectYearComponent extends LightningElement {
 
     cardTitle = '';
 
+    
+    studentColums = [
+       
+        { label: 'Student Id  ', fieldName: 'Id' },
+        { label: 'Student Name', fieldName: 'Name' }
+      
+    ];
+
 
   
     
@@ -48,7 +56,7 @@ export default class SelectYearComponent extends LightningElement {
         this.cardTitle = 'Student who passed in ' + event.detail.selectedyear + ' in ' + event.detail.departmentName + ' Department' ;
 
         getStudentInfo({ passingYear: this.selectedYear, depsrtmentId: event.detail.id }).then(result => {
-            // alert('result ' + JSON.stringify(result));
+            alert('result ' + JSON.stringify(result));
             this.studentData = result;
 
 
