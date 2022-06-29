@@ -4,6 +4,10 @@ import ANIMAL_DETAILS from '@salesforce/messageChannel/Animal_Detail__c';
 
 export default class BirdDetail extends LightningElement {
 
+
+
+  
+
     subscription = null;
 
     @wire(MessageContext)
