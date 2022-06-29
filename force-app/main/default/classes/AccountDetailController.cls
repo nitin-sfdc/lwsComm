@@ -7,11 +7,6 @@ public with sharing class AccountDetailController {
         List<Account> result = new List<Account>();
         result=[select id,name from Account];
         return result;
-
-
-
-
-        
     }
 
 

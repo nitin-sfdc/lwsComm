@@ -2,7 +2,7 @@
   
     <template if:true={departmentData}>
 
-    <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+    <!-- <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
                <thead>
                    <tr>
                        <th>DepartMent Name</th>
@@ -21,7 +21,16 @@
                        </tr>
                    </template>
                </tbody>
-           </table>
+    </table> -->
+
+    <lightning-datatable
+     key-field="departmentId"
+     data={departmentData}
+     onrowaction={handleDisplayClick}
+     columns={employeeColumns}>
+  </lightning-datatable>
+
+
            
     </template>
 </template>
