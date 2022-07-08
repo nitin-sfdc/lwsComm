@@ -1,0 +1,42 @@
+<template>
+
+    
+    <template if:true={test} >
+       
+  
+        <lightning-card  variant="Narrow"  title="Currency Converter" icon-name="standard:account">
+        
+        <div class="slds-modal__content " style="padding: 20px; overflow:initial;">
+
+           
+               <lightning-combobox placeholder="Select From Currency"  value={value} label="Select From Currency" options={test}  onchange={handleFromSelected}>
+               </lightning-combobox>   
+            
+        
+        <lightning-combobox placeholder="Select To Currency"  value={value} label="Select To Currency" options={test}   onchange={handleToSelected}>
+        </lightning-combobox> 
+
+        <lightning-input   class="slds-m-bottom_large" type="number" label="Enter Unit" placeholder="Enter Unit" onchange={handleChange}>
+        </lightning-input>
+
+        <template if:true={result}>
+
+            <div class="slds-text-heading_medium slds-m-bottom_large">{inputedAmmount}  {fromelSelectedText} is equal to {result} {toSelectedText}</div>
+
+            
+        </template>
+        
+        <lightning-button variant="brand" label="Convert" title="Primary action"  class="slds-m-top_medium" onclick={handleConvertClick} style="margin-top: 20px; "  disabled={convertButtnstateDisabled}></lightning-button>
+
+
+
+       </div>
+      
+       </lightning-card>
+  
+    
+
+    </template>
+
+
+</template>

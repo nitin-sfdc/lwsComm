@@ -43,6 +43,8 @@ public with sharing class GoogleContactController {
             request.setHeader('Content-Type', 'application/json');
             request.setHeader('Accept', 'application/json');
 
+            
+
             request.setBody(JSON.serialize(afterss));
             
             request.setEndpoint('https://people.googleapis.com/v1/people:createContact');

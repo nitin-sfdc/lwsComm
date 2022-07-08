@@ -27,11 +27,25 @@ global with sharing class ApexRestCallExample {
         
         String request=RestContext.request.requestBody.toString();
 
+        
+
         if(request==null){
             responseMessage='Bad Request';
             isSuccess=false;
         }else{
-         postRequest=(ApexPostRequest)Json.deserialize(request,ApexPostRequest.class);
+        //  postRequest=(ApexPostRequest)Json.deserialize(request,ApexPostRequest.class);
+
+        Lead sss =(Lead)Json.deserialize(request,Lead.class);
+
+       dddd= Database.upsert(sss,false);
+
+       if(sss.getRe==tr)
+
+       
+
+
+
+
          Account acc= new Account();
          acc.Name=postRequest.userName;
          insert acc;
