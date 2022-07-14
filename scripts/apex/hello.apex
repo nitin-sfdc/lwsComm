@@ -21,5 +21,4 @@
 
 // Database.executeBatch(new BatchApexExample());
 
-String cronexpression = '0 42 10 * * ? *';
-System.schedule('TEst ',cronexpression, new SchedulabeExample());
+ExchangeController.checkPANStatus();

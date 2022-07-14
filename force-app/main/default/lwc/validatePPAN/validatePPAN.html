@@ -1,0 +1,32 @@
+<template>
+
+    
+   
+
+  
+        <lightning-card  variant="Narrow"  title="PAN Validator Converter" icon-name="standard:account">
+     
+            <div class="slds-modal__content " style="padding: 20px; overflow:initial;">
+
+        <lightning-input   class="slds-m-bottom_large" type="text" max-length="10" label="Enter PAN "  value={panNumber} placeholder="Enter Permanant Account Number" onchange={handleChange} style="text-transform: uppercase;">
+        </lightning-input>
+
+
+        <template if:true={finalOutPUT}>
+
+            <div class="slds-text-heading_medium slds-m-bottom_large">PAN DETAILS : <br> Name On The Card: <b> {finalOutPUT} </b> <br> Source: <b> {source} </b> </div>
+
+            
+        </template>
+
+      
+        <lightning-button variant="brand" label="Validate PAN" title="Primary action"  class="slds-m-top_medium"  style="margin-top: 20px; "  onclick={handleCheckStatusClick} disabled={validateBtnState}></lightning-button>
+    </div>
+       </lightning-card>
+       
+  
+    
+
+
+
+</template>
