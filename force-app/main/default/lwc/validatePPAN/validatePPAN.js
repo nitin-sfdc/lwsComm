@@ -16,15 +16,20 @@ export default class ValidatePPAN extends LightningElement {
     @track
     source
 
+    @track
+    error
+
     handleChange(event){
         
         this.panNumber = event.target.value.toUpperCase();
         this.updateButtonState();
+        this.error=null;
+        this.finalOutPUT=null;
 
     }
 
     handleCheckStatusClick(){
-        alert(this.panNumber)
+        //alert(this.panNumber)
 
         checkPANStatus({panNumber:this.panNumber}).then((response) =>{
             //alert('Something');
@@ -49,13 +54,16 @@ export default class ValidatePPAN extends LightningElement {
 
     checkData(panResponses){
 
-        if(panResponses.status=='completed'){
+        if(panResponses.status=='completed' && panResponses.result.source_output.status=='id_found'){
             // alert(panResponses.result);
             this.finalOutPUT= panResponses.result.source_output.name_on_card
             this.source= panResponses.result.source_output.source;
-            alert(this.finalOutPUT);
+        }else if(panResponses.status=='completed' && panResponses.result.source_output.status=='id_not_found'){
+            //alert('Detatils not found');
+            this.error='Detatils not found';
         }else{
-            alert('NOT A VALID PAN CARD');
+            this.error=panResponses.message;
+            //alert(panResponses.message);
         }
 
     }

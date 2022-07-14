@@ -16,7 +16,12 @@
 
             <div class="slds-text-heading_medium slds-m-bottom_large">PAN DETAILS : <br> Name On The Card: <b> {finalOutPUT} </b> <br> Source: <b> {source} </b> </div>
 
-            
+        </template>
+
+        <template if:true={error}>
+
+            <div class="slds-text-heading_medium slds-m-bottom_large"> {error} </div>
+
         </template>
 
       
