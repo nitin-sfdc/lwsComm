@@ -1,0 +1,32 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="Language Translator " icon-name="standard:account">
+        <div class="slds-modal__content " style="padding: 20px; overflow:initial;">
+
+
+    <lightning-combobox class="slds-m-bottom_small" placeholder="Select language to convert from"   label="Select language to convert from " value={value}   data-id="from" options={languageOptions}   onchange={handleSelection}>
+    </lightning-combobox> 
+
+
+    <lightning-combobox  class="slds-m-bottom_small" placeholder="Select Language to convert " label="Select Language to convert " value={value}  options={languageOptions}  data-id="to" onchange={handleSelection}>
+    </lightning-combobox> 
+
+
+    <lightning-textarea class="slds-m-top-small,slds-m-bottom-large" name="Enter  text to convert" label="Enter  text to convert" onchange={handleTextChange}></lightning-textarea>
+
+    <template  if:true={convertedText}>
+        <h1 class="slds-m-bottom-large" >Converted Text: </h1> <h3>{convertedText}</h3>
+
+    </template>
+
+
+    <lightning-button variant="brand" label="Convert" title="Primary action"  class="slds-m-top-large" onclick={convertText} style="margin-top: 20px; "  disabled={convertButtnstateDisabled}></lightning-button>
+
+   
+    
+    </div>
+
+
+    </lightning-card>
+    
+</template>
