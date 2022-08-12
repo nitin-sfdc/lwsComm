@@ -26,7 +26,7 @@ export default class Translator extends LightningElement {
             method: 'GET',
             headers: {
                 'Accept-Encoding': 'application/gzip',
-                'X-RapidAPI-Key': 'a54112b125msh950fd78fd826273p1a3c88jsne06a6c87eedc',
+                'X-RapidAPI-Key': 'YOUR_API_KEY',
                 'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
             }
         };
@@ -130,7 +130,7 @@ export default class Translator extends LightningElement {
 	    headers: {
 	    	'content-type': 'application/x-www-form-urlencoded',
 		    'Accept-Encoding': 'application/gzip',
-		    'X-RapidAPI-Key': 'a54112b125msh950fd78fd826273p1a3c88jsne06a6c87eedc',
+		    'X-RapidAPI-Key': 'YOUR_API_KEY',
 		    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
 	   },
 	     body: encodedParams
