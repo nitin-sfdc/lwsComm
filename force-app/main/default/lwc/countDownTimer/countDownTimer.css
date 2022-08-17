@@ -1,0 +1,32 @@
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 10%;
+    background-color: blueviolet;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  .day,
+  .hour,
+  .minute,
+  .second {
+    font-size: 3rem;
+    color: brown;
+    background-color: aqua;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .text{
+    color: aqua;
+  }
+
+  .colon {
+    font-size: 3rem;
+    color: aqua;
+  }
+
+  

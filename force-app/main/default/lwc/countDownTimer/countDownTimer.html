@@ -1,0 +1,51 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Opportunity Close Countdown Timer" icon-name="standard:account">
+
+        <template if:true={isDataLoaded}>
+        
+        <template if:false={isClosedDatePassed}>
+            
+            <div>
+            
+                <div class="countdown">
+                <div class="container-day">
+                    <h3 class="day">{textDay}</h3>
+                    <h3 class="text">Day</h3>
+                </div>
+
+                <h3 class="colon">:</h3>
+                
+                <div class="container-hour">
+                    <h3 class="hour">{textHour}</h3>
+                    <h3 class="text">Hour</h3>
+                </div>
+
+                <h3 class="colon">:</h3>
+
+
+                <div class="container-minute">
+                    <h3 class="minute">{textMinute}</h3>
+                    <h3 class="text">Minute</h3>
+                </div>
+
+                <h3 class="colon">:</h3>
+
+                <div class="container-second">
+                    <h3 class="second">{textSecond}</h3>
+                    <h3 class="text">{labelSecond}</h3>
+                </div>
+                </div>
+            </div>
+
+        </template>
+
+        <template if:true={isClosedDatePassed}>
+            <b class="slds-m-left_large">Opputunity Close Date Passed</b>
+        </template>
+        
+        
+    </template>
+
+    </lightning-card>
+    
+</template>
