@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+           
+            <property label="Object Name" name="objectName" type="String" required="true"/>
+            <property label="Object Fields" name="objectFields" type="String" required="true"/>
+            <property label="Row Count" name="rowCount" type="Integer" required="true" default="5"/>
+            <property label="Increment Count" name="incrementCount" type="Integer" required="true" default="10"/>
+            <property label="viewMore" name="viewMore" type="Boolean" required="false" />
+
+
+
+
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>

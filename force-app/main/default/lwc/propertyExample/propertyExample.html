@@ -1,0 +1,27 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="Dynamic Data Table" icon-name="standard:account">
+
+    <div>    
+    
+    <lightning-datatable
+    class="slds-m-bottom_large,slds-p-large"
+    key-field="id"
+    data={datalist}
+    hide-checkbox-column="true"
+    columns={columnList}>
+
+   </lightning-datatable>
+
+   <template if:true={viewMore} >
+
+    <lightning-button class="slds-m-top_large" variant="brand" label="View More" title="titleName" onclick={handleClick}></lightning-button>
+
+    </template>
+</div>
+
+</lightning-card>
+
+
+    
+</template>
