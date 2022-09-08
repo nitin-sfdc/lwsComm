@@ -1,0 +1,24 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="Lead History" icon-name="action:new_lead" >
+        <lightning-button-icon  icon-class="slds-text-color_success" icon-name="utility:loop" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <div class="tableCss">
+        <lightning-datatable
+        key-field="id"
+        column-widths-mode="auto"
+        hide-checkbox-column="true"
+        data={datatableData}
+        columns={columns} >
+        </lightning-datatable> 
+        </div>
+
+        
+
+        
+    </lightning-card>
+
+  
+
+ 
+    
+</template>

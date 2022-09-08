@@ -1,0 +1,15 @@
+
+  .redColor{
+    fill : green;
+    color: blueviolet;
+    background-color: brown;
+}
+
+.slds-text-color_destructive{
+    color: blueviolet;
+}
+
+.datatable-full-size {
+  width: 100% !important;
+}
+
