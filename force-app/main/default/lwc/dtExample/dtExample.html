@@ -1,0 +1,26 @@
+<template>
+    <lightning-card variant="Narrow" title="Lead History" icon-name="action:new_lead">
+        
+        <lightning-button-icon icon-class="slds-text-color_success" icon-name="utility:loop"
+        variant="border-filled" alternative-text="Show More" slot="actions">
+    </lightning-button-icon>
+        
+        <div style="width: auto; height:500px">
+            <template if:true={data}>
+                <lightning-datatable data={data}
+                                     columns={columns}
+                                     key-field="id"
+                                     sorted-by={sortBy}
+                                     sorted-direction={sortDirection}
+                                     onsort={handleSortAccountData}
+                                   
+                                     hide-checkbox-column="true"></lightning-datatable>
+            </template>
+
+
+        </div>
+    </lightning-card>
+</template>
+
+<!-- enable-infinite-loading -->
+<!-- onloadmore={loadMoreData} -->
