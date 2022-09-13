@@ -2,12 +2,12 @@
     <lightning-card variant="Narrow" title="Lead History" icon-name="action:new_lead">
         
         <lightning-button-icon icon-class="slds-text-color_success" icon-name="utility:loop"
-        variant="border-filled" alternative-text="Show More" slot="actions">
+        variant="border-filled" alternative-text="Show More" slot="actions" onclick={handleRefresh}>
     </lightning-button-icon>
 
     <div class="tableCss">
         
-        <div style="width: auto; height:500px">
+        <div style="width: auto; height:180px">
             <template if:true={data}>
                 <lightning-datatable data={data}
                                      columns={columns}
@@ -15,7 +15,10 @@
                                      sorted-by={sortBy}
                                      sorted-direction={sortDirection}
                                      onsort={handleSortAccountData}
-                                   
+                                     enable-infinite-loading
+                                     onloadmore={loadMoreData}
+                                     
+                                
                                      hide-checkbox-column="true"></lightning-datatable>
             </template>
 

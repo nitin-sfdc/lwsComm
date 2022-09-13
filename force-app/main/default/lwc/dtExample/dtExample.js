@@ -4,13 +4,22 @@ import lwcDatatableStyle from "@salesforce/resourceUrl/lwcDatatableStyle";
 
 import getCardDetsils from "@salesforce/apex/lwcSortingDataTableCtrl.getCardDetsils";
 const columns = [
+      {
+        label: "Name",
+        fieldName: "Name",
+        sortable:true
+      },
      
       {
         label: "Date",
         fieldName: "CreatedDate",
-        sortable: "true",
         sortable: true,
         hideDefaultActions: true,
+      
+       
+        cellAttributes: {
+            alignment: 'center'
+          },
         
       },
       {
@@ -21,6 +30,7 @@ const columns = [
         
         cellAttributes: {
             iconName: { fieldName: "channelIcon" },
+            alignment: 'center'
           },
 
       },
@@ -28,33 +38,37 @@ const columns = [
       {
         fieldName: "",
         label: "Cart",
-        wrapText: false,
+        sortable: false,
         hideDefaultActions: true,
         cellAttributes: {
           iconName: { fieldName: "cartIcon" },
+          alignment: 'center'
         },
       },
 
       {
         fieldName: "",
         label: "Follo Up",
-        wrapText: false,
+        sortable: false,
         hideDefaultActions: true,
         cellAttributes: {
           iconName: { fieldName: "followUpIcon" },
+          alignment: 'center'
+        },
+      },
+      {
+        type: "action",
+        typeAttributes: {
+          rowActions: [
+            { label: "View", name: "view" },
+            { label: "Edit", name: "edit" },
+            { label: "Delete", name: "delete" },
+          ],
+          menuAlignment: "right",
         },
       },
 
-
-      
-
-    {
-    label: "Name",
-    fieldName: "Name",
-    sortable: "true",
-    sortable: true,
-    hideDefaultActions: true,
-  }
+   
   
 ];
 export default class DtExample extends LightningElement {
@@ -66,12 +80,20 @@ export default class DtExample extends LightningElement {
   @track 
   error;
   @track 
-  rowLimit = 25;
+  rowLimit = 5;
   @track 
-  rowOffSet = 0;
+  rowOffSet = 5;
+
+  @track
+  isAllDataLoaded=false;
 
   connectedCallback() {
     this.loadData();
+  }
+
+  handleRefresh(event){
+    eval("$A.get('e.force:refreshView').fire();");
+
   }
 
   loadData() {
@@ -108,36 +130,6 @@ export default class DtExample extends LightningElement {
 
         });
 
-        alert(JSON.stringify(this.data));
-
-
-        // alert(JSON.stringify(  this.data));
-        
-
-
-    //     this.data = updatedRecords.map(resultss =>{
-
-    //         // switch (resultss.Channel__c) {
-    //         //     case "Wireless":
-    //         //         resultss.channelIcon='utility:call';
-    //         //         break;
-    //         //     case "Video":
-    //         //         resultss.channelIcon='utility:home';
-    //         //         break;
-    //         //     case "Internet":
-    //         //         resultss.channelIcon='utility:world';
-    //         //         break;        
-    //         // }
-
-    //         resultss.channelIcon='utility:world';
-
-    //         return resultss;
-
-    
-    //    });
-
-        // alert(JSON.stringify( this.data));
-
         this.error = undefined;
       })
       .catch((error) => {
@@ -148,33 +140,79 @@ export default class DtExample extends LightningElement {
   }
 
   loadMoreData(event) {
-    const currentRecord = this.data;
-    const { target } = event;
-    target.isLoading = true;
 
+    const { target } = event;
+
+    if( this.isAllDataLoaded){
+        target.isLoading = false;
+        return ;
+    }
+
+    
+   
     this.rowOffSet = this.rowOffSet + this.rowLimit;
-    this.loadData().then(() => {
-      target.isLoading = false;
-    });
+   
+    getCardDetsils({ limitSize: this.rowLimit, offset: this.rowOffSet })
+      .then((result) => {
+
+        if(result.length==0){
+            this.isAllDataLoaded=true;
+        }
+      
+        result= result.map(resultss =>{
+            let channel='';
+            let followUp='';
+             switch (resultss.Channel__c) {
+                case "Wireless":
+                    channel='utility:call';
+                    break;
+                case "Video":
+                    channel='utility:home';
+                    break;
+                case "Internet":
+                    channel='utility:world';
+                    break;        
+            }
+
+            if(resultss.FollowUp__c){
+                followUp='utility:error';
+            }
+            return { ...resultss, followUpIcon:followUp, cartIcon: 'utility:cart',channelIcon:channel };
+        });
+
+        this.data =[].concat(this.data,result);
+        target.isLoading = false;
+
+        this.error = undefined;
+      })
+      .catch((error) => {
+        this.error = error;
+        this.data = undefined;
+        alert(error);
+        target.isLoading = false;
+      });
+
   }
 
   handleSortAccountData(event) {
+    console.log('handleSortAccountData direction ');
+
     this.sortBy = event.detail.fieldName;
     this.sortDirection = event.detail.sortDirection;
     this.sortAccountData(event.detail.fieldName, event.detail.sortDirection);
   }
 
-  renderedCallback() {
-    loadStyle(this, lwcDatatableStyle)
-      .then(() => {
-        console.log("Loaded Successfully");
-        // alert("Loaded Successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("err" + error);
-      });
-  }
+//   renderedCallback() {
+//     // loadStyle(this, lwcDatatableStyle)
+//     //   .then(() => {
+//     //     console.log("Loaded Successfully");
+//     //     // alert("Loaded Successfully");
+//     //   })
+//     //   .catch((error) => {
+//     //     console.log(error);
+//     //     alert("err" + error);
+//     //   });
+//   }
 
   sortAccountData(fieldname, direction) {
     console.log('sortAccountData direction '+direction);
@@ -194,6 +232,11 @@ export default class DtExample extends LightningElement {
       return isReverse * ((x > y) - (y > x));
     });
 
+    console.log(" sort data befor "+JSON.stringify(this.data));
+
     this.data = parseData;
+    console.log(" sort data afyer "+JSON.stringify(this.data));
+    
+    
   }
 }

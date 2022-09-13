@@ -15,7 +15,8 @@ public with sharing class lwcSortingDataTableCtrl {
     public static List<Cart_Tracker__c> getCardDetsils(Integer limitSize, Integer offset){
         List<Cart_Tracker__c> accountList = [SELECT Id, Name ,CreatedDate ,Channel__c ,FollowUp__c FROM Cart_Tracker__c
                                      ORDER BY CreatedDate
-
+                                     LIMIT :limitSize
+                                     OFFSET: offset
                                      ];
         return accountList;
     }
