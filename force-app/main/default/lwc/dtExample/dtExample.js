@@ -1,4 +1,7 @@
 import { LightningElement, wire, track } from "lwc";
+import { loadStyle } from "lightning/platformResourceLoader";
+import lwcDatatableStyle from "@salesforce/resourceUrl/lwcDatatableStyle";
+
 import getCardDetsils from "@salesforce/apex/lwcSortingDataTableCtrl.getCardDetsils";
 const columns = [
      
@@ -161,7 +164,21 @@ export default class DtExample extends LightningElement {
     this.sortAccountData(event.detail.fieldName, event.detail.sortDirection);
   }
 
+  renderedCallback() {
+    loadStyle(this, lwcDatatableStyle)
+      .then(() => {
+        console.log("Loaded Successfully");
+        // alert("Loaded Successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("err" + error);
+      });
+  }
+
   sortAccountData(fieldname, direction) {
+    console.log('sortAccountData direction '+direction);
+
     let parseData = JSON.parse(JSON.stringify(this.data));
 
     let keyValue = (a) => {
