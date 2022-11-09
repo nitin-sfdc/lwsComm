@@ -1,11 +1,4 @@
-// https://global26-dev-ed.my.salesforce-sites.com/services/apexrest/webhook/
 
-// merchand ID:  VZWVCO57399956868502
-// merchand key : P3mdhyftAjGf2ac#
-
-
-// Key Id : rzp_test_Aq84pt8QeJv9oT
-// key Secret : LAiuEeeiQtHEtduBGokOomFC
 
 
 
