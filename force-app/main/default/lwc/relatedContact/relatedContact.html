@@ -1,0 +1,30 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="Account Related Contact" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+      <lightning-button variant="brand" label="Create Contact Flow"  onclick={handleCreateContact} ></lightning-button>
+      <lightning-button variant="brand"  class="slds-m-left_small" label="Create Contact Field Set"  onclick={handleCreateContactFieldSet} ></lightning-button>
+      <lightning-button variant="brand"  class="slds-m-left_small" label="Create Contact Manually"  onclick={handleCreateContactManually} ></lightning-button>
+   </div>
+        <lightning-datatable
+                 key-field="Id"
+                 data={contactList.data}
+                 hide-checkbox-column="true"
+                 onsave={handleSave}
+                 onrowaction={handleRowAction}
+                 draft-values={saveDraftValues} 
+                 show-row-number-column
+                 columns={columns}
+                 >
+       </lightning-datatable>
+
+    </lightning-card>
+
+  
+
+    <!-- <lightning-flow if:true={isCreateContactClicked} flow-api-name='create_contact_flow'
+         onstatuschange={handleStatusChange}>
+    </lightning-flow> -->
+
+    
+</template>

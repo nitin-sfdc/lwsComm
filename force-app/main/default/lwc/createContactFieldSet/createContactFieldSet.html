@@ -1,0 +1,38 @@
+<template>
+
+        <lightning-modal-header label="Create Contact"></lightning-modal-header>
+        <lightning-modal-body>
+
+        <lightning-card >
+
+        <template if:true={isLoading}>
+                <div class="slds-p-around_x-large">
+                        <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+                 </div>
+        </template>
+                       
+         <lightning-record-edit-form  object-api-name="Contact"
+            onsuccess={handleSuccess} onsubmit ={onSubmitHandler}>
+        <lightning-messages>
+        </lightning-messages>
+      
+        <lightning-input-field field-name="FirstName">
+        </lightning-input-field>
+        <lightning-input-field field-name="LastName">
+        </lightning-input-field>
+        <lightning-input-field field-name="Email">
+        </lightning-input-field>
+
+        <lightning-input-field field-name="Phone">
+        </lightning-input-field>
+
+        <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="Create Contact" label="Create Contact">
+        </lightning-button>
+        </lightning-record-edit-form>
+        </lightning-card>
+     
+    
+        </lightning-modal-body>
+       
+    
+</template>

@@ -1,0 +1,30 @@
+<template>
+
+    <lightning-modal-header label="Create Contact"></lightning-modal-header>
+    <lightning-modal-body>
+    
+    <lightning-card>
+
+        <template if:true={isLoading}>
+            <div class="slds-p-around_x-large">
+                <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+        
+    <lightning-input class="validate" type="text" data-id="FirstName" label="First Name"  onchange={handleInputChange} required></lightning-input>
+    <lightning-input class="validate" type="text" data-id="LastName" label="Last Name"  onchange={handleInputChange}></lightning-input>
+    <lightning-input class="validate" type="email" data-id="Email" label="Email"  onchange={handleInputChange} required></lightning-input>
+    <lightning-input class="validate slds-m-bottom_medium" type="phone" data-id="Phone" label="Phone Name"  onchange={handleInputChange}></lightning-input> 
+
+    <lightning-button class="slds-m-around_medium" variant="brand"  name="Create Contact" label="Create Contact" onclick={handleSubmit}>
+    </lightning-button>
+
+    </lightning-card>
+
+
+    </lightning-modal-body>
+   
+  
+    
+</template>

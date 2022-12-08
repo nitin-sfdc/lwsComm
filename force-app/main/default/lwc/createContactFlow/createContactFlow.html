@@ -1,0 +1,15 @@
+<template>
+
+    <lightning-modal-header label="Create Contact"></lightning-modal-header>
+    <lightning-modal-body>
+
+       <!-- <h1>{content}</h1>  -->
+    <lightning-flow  flow-api-name='create_contact_flow' flow-input-variables={inputVariables}
+         onstatuschange={handleStatusChange}>
+    </lightning-flow> 
+
+    </lightning-modal-body>
+   
+  
+    
+</template>
