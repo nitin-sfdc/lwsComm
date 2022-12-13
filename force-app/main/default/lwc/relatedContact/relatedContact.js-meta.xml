@@ -6,4 +6,12 @@
         <target>lightning__RecordPage</target>
     </targets>
 
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="objectName" type="String" label="Object Name"/>
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="fieldSet" type="String" label="Field Set"/>
+        </targetConfig>
+    </targetConfigs>
+
 </LightningComponentBundle>

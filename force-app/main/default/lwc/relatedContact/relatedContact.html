@@ -6,18 +6,27 @@
       <lightning-button variant="brand"  class="slds-m-left_small" label="Create Contact Field Set"  onclick={handleCreateContactFieldSet} ></lightning-button>
       <lightning-button variant="brand"  class="slds-m-left_small" label="Create Contact Manually"  onclick={handleCreateContactManually} ></lightning-button>
    </div>
-        <lightning-datatable
+
+     <div class="slds-m-around_medium">
+
+       <lightning-datatable
+                 class="slds-m-around_small"
                  key-field="Id"
                  data={contactList.data}
                  hide-checkbox-column="true"
                  onsave={handleSave}
                  onrowaction={handleRowAction}
                  draft-values={saveDraftValues} 
-                 show-row-number-column
                  columns={columns}
                  >
        </lightning-datatable>
 
+
+       <c-paginator  onprevious={previousHandler2} onnext={nextHandler2} onselected={changeHandler2} onfirstpage={firstpagehandler} onlastpage={lastpagehandler}></c-paginator>
+       <!-- show-row-number-column -->
+
+
+    </div>
     </lightning-card>
 
   

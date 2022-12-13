@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Record Creation Using Field Set">
+    
+        <template if:true={isLoading}>
+            <div class="slds-p-around_x-large">
+                    <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+             </div>
+        </template>
+
+        <div class="slds-p-around_medium">
+        <lightning-record-edit-form object-api-name={objectName} 
+          onsuccess={handleSuccess} onsubmit={onSubmitHanlder} onerror={handleError}>
+            <lightning-messages data-id="message">
+            </lightning-messages>
+                <div class="slds-grid slds-wrap">
+                <template if:true={fields}>
+                    <template for:each={fields} for:item="f">
+                       <div key={f.Id} class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name={f.APIName}>
+                        </lightning-input-field>
+                        </div>
+                    </template>
+                </template>
+                </div>
+            <lightning-button type="submit" variant="brand" label="Create Contact"></lightning-button>
+        
+        </lightning-record-edit-form>
+        </div>
+    
+    </lightning-card>
+</template>
